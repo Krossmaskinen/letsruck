@@ -1,5 +1,7 @@
-let events = localStorage["events"];
+import { writable } from "svelte/store";
 
-events = events ? JSON.parse(events) : [];
+let storedEvents = localStorage["events"];
 
-export default events;
+storedEvents = storedEvents ? JSON.parse(storedEvents) : [];
+
+export const events = writable(storedEvents);
